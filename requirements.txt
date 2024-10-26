@@ -1,0 +1,10 @@
+pandas
+numpy
+speechrecognition
+wikipedia
+openai
+pyaudio
+pyttsx3
+datetime
+python-decouple
+-e .
