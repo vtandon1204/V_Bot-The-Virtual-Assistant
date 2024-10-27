@@ -19,11 +19,12 @@ engine.setProperty('voice', voices[1].id)
 # voices[1] --> female assistant voice
 
 # Load the .env file from the specified path
-config = Config(RepositoryEnv("config\.env"))
+config = Config(RepositoryEnv(r"config\.env"))
 USER = config('USER')
 HOSTNAME = config('BOT')
 
 def say(text):
+    print(f"Saying: {text}")  # Debug line to verify the text
     engine.say(text)
     engine.runAndWait()
 
@@ -36,7 +37,10 @@ def greet_me():
         say(f"Good Afternoon {USER}")
     elif 16 <= hour < 21:
         say(f"Good Evening {USER}")
-    say(f"I'm {HOSTNAME}. How may I assist you {USER}?")
+    # Add a slight delay before saying the hostname
+    import time
+    time.sleep(0.6)
+    say(f"I am {HOSTNAME}. How may I assist you {USER}?")
     
 def takeCommand():
     r = sr.Recognizer()
@@ -70,4 +74,5 @@ def takeCommand():
 
 if __name__ == '__main__':
     # say('hello i am V Bot')
+    # print(f"USER: {USER}, HOSTNAME: {HOSTNAME}")
     greet_me()
