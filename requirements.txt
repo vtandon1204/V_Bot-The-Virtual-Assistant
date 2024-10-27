@@ -7,4 +7,6 @@ pyaudio
 pyttsx3
 datetime
 python-decouple
+keyboard
+pywhatkit
 -e .
