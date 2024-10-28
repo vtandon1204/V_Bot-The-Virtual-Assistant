@@ -187,40 +187,13 @@ if __name__ == '__main__':
                         ip_address = find_my_id()
                         say(f"Your I.P address is {ip_address}")
                         print(f"Your I.P address is {ip_address}")
-                            
-                    sites = [["youtube", "https://www.youtube.com/"],
-                                ["lms", "https://lms.thapar.edu/moodle/login/"],
-                                ["personal mail", "https://mail.google.com/mail/u/0/#inbox"],
-                                ["college mail", "https://mail.google.com/mail/u/1/#inbox"],
-                                ["striver", "https://takeuforward.org/"],
-                                ["github", "https://github.com/"],
-                                ["lead code", "https://leetcode.com/problemset/"],
-                                ["twitter", "https://x.com/home?lang=en-in"],
-                                ["google","https://www.google.com/"],
-                                ["udemy","https://www.udemy.com/"],
-                                ["github","https://github.com/"],
-                                ["youtube music","https://music.youtube.com/"]
-                            ]
-                    for site in sites:
-                        if f"open {site[0]}".lower() in query.lower():
-                            say(f"Opening {site[0]}")
-                            webbrowser.open(site[1])
-                        
-                    # todo: add more apps
-                    apps = [["Edge",
-                            "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"],
-                                # ["WhatsApp",
-                                #  "C:\\Users\\Vaibhav Tandon\\AppData\\Local\\Temp\\MicrosoftEdgeDownloads\\77638b9c-b97b-4c2b-91c3-56bf29721d63"],
-                                ["VS code", 
-                                "C:\\Users\\Vaibhav Tandon\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"],
-                                ["Spotify", 
-                                "C:\\Users\\Vaibhav Tandon\\Desktop\\Spotify.lnk"]
-                            ]
-                    for app in apps:
-                        if f"open {app[0]}".lower() in query.lower():
-                            say(f"Opening {app[0]}")
-                            os.startfile(app[1])
-                        
+                    elif "open" in query.lower():
+                        from dict_app import openapp
+                        openapp(query)
+                    elif "close" in query.lower():
+                        from dict_app import closeapp
+                        closeapp(query)   
+                    
                     # todo: add a feature to play a specific song        
                     # # New condition for Spotify
                     # if "play" in query.lower() and "on spotify" in query.lower():
