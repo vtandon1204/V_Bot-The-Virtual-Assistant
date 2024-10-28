@@ -10,4 +10,5 @@ python-decouple
 keyboard
 pywhatkit
 bs4
+playsound
 -e .

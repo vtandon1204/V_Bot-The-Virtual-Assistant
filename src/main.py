@@ -95,6 +95,14 @@ def takeCommand():
             say("Sorry I couldn't understand, Can you please repeat?")
             return "None"
 
+def alarm(query):
+    # Write the alarm time to the alarmtext.txt file
+    with open("src/alarmtext.txt", "w") as time_file:  # Use 'w' mode to overwrite
+        time_file.write(query.strip())  # Write the time without leading/trailing spaces
+
+    absolute_path = os.path.join(os.getcwd(), "src", "alarm.py")
+    os.startfile(absolute_path)
+    
 if __name__ == '__main__':
     # say('Hello I am V Bot')
     # print(f"USER: {USER}, HOSTNAME: {HOSTNAME}")
@@ -193,7 +201,11 @@ if __name__ == '__main__':
                     elif "close" in query.lower():
                         from dict_app import closeapp
                         closeapp(query)   
-                    
+                    elif "set an alarm" in query.lower():
+                        say("set the time")
+                        alarm_time = input()
+                        alarm(alarm_time)
+                        say("done sir")
                     # todo: add a feature to play a specific song        
                     # # New condition for Spotify
                     # if "play" in query.lower() and "on spotify" in query.lower():
