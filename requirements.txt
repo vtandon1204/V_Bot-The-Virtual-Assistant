@@ -9,4 +9,5 @@ datetime
 python-decouple
 keyboard
 pywhatkit
+bs4
 -e .
